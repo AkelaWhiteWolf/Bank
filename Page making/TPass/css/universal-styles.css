@@ -5,3 +5,20 @@
     padding: 1rem 1.5rem;
     cursor: pointer;
 }
+._text {
+    color: #0F2336;
+}
+._content-container {
+    width: 100%;
+    max-width: 1140px;
+    height: 100%;
+}
+._section-full-width {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+._section {
+    width: 100%;
+    max-width: 1140px;
+}

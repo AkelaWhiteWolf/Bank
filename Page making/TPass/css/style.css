@@ -8,28 +8,32 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .header {
-    max-width: 1210px;
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: space-around;
+    background-color: #F5F6F7;
+}
+.header__content-container {
+    display: flex;
 }
 .header__logo-container {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
 }
-.site-name {
+.website-name {
     color: #122F53;
     font-size: 2rem;
     font-weight: 900;
 }
-.header__site-name {
+.header__website-name {
     padding-left: 1rem;
 }
 .header__nav-container {
@@ -49,4 +53,13 @@
     background: #0F2336;
     border-radius: 8px;
     color: white;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.section-1 {
+    background-color: #F5F6F7;
 }
