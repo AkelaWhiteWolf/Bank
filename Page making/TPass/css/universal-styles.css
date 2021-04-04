@@ -2,11 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 1.5rem;
     cursor: pointer;
+    border-width: 0;
+}
+._button_blue {
+    background-color: #00CCCC;
+    border-radius: 15px;
+    font-size: 18px;
 }
 ._text {
     color: #0F2336;
+}
+._h1 {
+    font-size: 55px;
+}
+._h3 {
+    font-size: 25px;
 }
 ._content-container {
     width: 100%;
