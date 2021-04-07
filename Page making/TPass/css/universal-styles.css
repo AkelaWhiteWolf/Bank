@@ -6,15 +6,22 @@
     border-width: 0;
 }
 ._button_blue {
-    background-color: #00CCCC;
+    background-color: var(--light-blue);
     border-radius: 15px;
     font-size: 18px;
 }
 ._text {
-    color: #0F2336;
+    color: var(--main-blue);
+}
+._text_gray {
+    font-size: 18px;
+    color: #576D81;
 }
 ._h1 {
     font-size: 55px;
+}
+._h2 {
+    font-size: 40px;
 }
 ._h3 {
     font-size: 25px;
@@ -24,12 +31,12 @@
     max-width: 1140px;
     height: 100%;
 }
+._section {
+    width: 100%;
+    max-width: 1140px;
+}
 ._section-full-width {
     min-width: 100%;
     display: flex;
     justify-content: center;
-}
-._section {
-    width: 100%;
-    max-width: 1140px;
 }
