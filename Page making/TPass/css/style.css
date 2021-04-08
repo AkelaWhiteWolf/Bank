@@ -16,7 +16,7 @@
     height: 80px;
     display: flex;
     justify-content: space-around;
-    background-color: #F5F6F7;
+    background-color: var(--sections-background);
 }
 .header__content-container {
     display: flex;
@@ -65,7 +65,7 @@
 }
 
 .section-1 {
-    background-color: #F5F6F7;
+    background-color: var(--sections-background);
 }
 .section-1__content-container {
     display: flex;
@@ -115,7 +115,20 @@
 }
 
 .section-with-phone {
+    background-color: var(--sections-background);
+    border-radius: 40px;
     display: flex;
+    align-items: center;
+    
+    /* Убрать в медиазапросах */
+    max-height: 550px;
+}
+.section-with-phone__text-container {
+    height: 320px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .duts-container {
     max-width: 100px;
@@ -133,4 +146,7 @@
     height: 10px;
     border-radius: 10px;
     background-color: var(--light-blue);
+}
+.main__section-3 {
+    margin-top: 8rem;
 }
