@@ -150,3 +150,12 @@
 .main__section-3 {
     margin-top: 8rem;
 }
+
+.sticker__img-container {
+    width: 50px;
+    height: 50px;
+    background-color: var(--sections-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
