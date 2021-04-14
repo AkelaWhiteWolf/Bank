@@ -151,12 +151,34 @@
     margin-top: 8rem;
 }
 
-.sticker {
-    width: 90%;
-    max-width: 455px;
+.main__section-4 {
+    margin-top: 12rem;
+}
+.section-with-girl {
+    background-color: var(--sections-background);
+    max-height: 527px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    align-items: center;
+}
+.section-with-girl__content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-with-girl__stickers-container {
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sticker {
+    max-width: 455px;
+    height: 179px;
+    background-color: white;
+    border-radius: 15px;
+    /* box-shadow: 0px 0px 5px 0.1px black; */
+    display: grid;
+    grid-template: 1fr 1fr / 86px 1fr;
     align-items: center;
 }
 .sticker__img-container {
@@ -166,4 +188,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center;   
+}
+.sticker__p {
+    grid-column-start: 2;
+}
+.section-with-girl__sticker-margin {
+    margin-left: 40px;
+}
+.section-with-girl__img-container {
+    max-height: 537px;
+}
+.afro-img {
+    height: 537px;
+    object-fit: contain;
+}
+
+.main__section-5 {
+    margin-top: 8rem;
+    justify-content: flex-end;
 }
