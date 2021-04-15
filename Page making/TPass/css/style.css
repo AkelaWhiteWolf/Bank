@@ -248,12 +248,12 @@
 }
 .footer__content-container {
     padding: 3rem 0;
+    height: 100%;
     display: flex;
     justify-content: space-between;
 }
 .footer__logo-container {
     width: 50%;
-    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -263,4 +263,32 @@
 }
 .footer__website-name {
     padding-left: 1rem;
+}
+.footer__menu-container {
+    width: 50%;
+    min-height: 112px;
+    display: grid;
+    grid-template: 50% 50% / repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.menu-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer__menu-company {
+    grid-row: 1 / 1;
+}
+.footer__menu-support {
+    grid-row: 1 / span 2;
+}
+.footer__menu-follow-us {
+    grid-row: 1 / span 2;
+}
+.link {
+    cursor: pointer;
+    color: gray;
+}
+.links-name {
+    color: var(--light-blue);
 }
