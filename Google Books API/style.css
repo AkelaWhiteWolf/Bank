@@ -1,13 +1,49 @@
-.outside {
-    width: 100px;
-    height: 100px;
-    background-color: red;
+* {
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box;
+}
+.flx-cntr {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.inside {
-    width: 50px;
-    height: 50px;
-    background-color: yellow;
+
+.body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 1140px;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+.book-form {
+    width: 100%;
+}
+/* .main__book-form {
+    margin: 0 3px;
+} */
+
+.book-input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    outline: none;
+}
+.book-input:hover, .book-input:focus {
+    border: 1px solid gray;
+    box-shadow: 0 0 6px 1px gray;
+}
+/* .book-input:focus {
+    border: 1px solid gray;
+    box-shadow: 0 0 6px 1px gray;
+} */
+.book-form__input {
+    padding: 10px 10px;
 }
