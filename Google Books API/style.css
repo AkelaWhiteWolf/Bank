@@ -3,11 +3,6 @@
     padding: 0 0;
     box-sizing: border-box;
 }
-.flx-cntr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .body {
     height: 100vh;
@@ -19,7 +14,13 @@
     width: 100%;
     max-width: 1140px;
     min-height: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.site-name {
+    text-align: center;
 }
 
 .book-form {
@@ -40,10 +41,18 @@
     border: 1px solid gray;
     box-shadow: 0 0 6px 1px gray;
 }
-/* .book-input:focus {
-    border: 1px solid gray;
-    box-shadow: 0 0 6px 1px gray;
-} */
 .book-form__input {
     padding: 10px 10px;
+}
+
+.books-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-auto-rows: 150px;
+    grid-gap: 30px;
+}
+
+.elem {
+    background-color: blue;
 }
