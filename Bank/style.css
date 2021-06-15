@@ -1,0 +1,83 @@
+* {
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box;
+}
+.button {
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 1170px;
+}
+.body__main {
+    margin-top: 100px;
+}
+.section-banks {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+    justify-content: center;
+    /* grid-auto-rows: 150px; */
+    grid-gap: 50px;
+}
+
+.bank {
+    box-shadow: 0 0 6px 2px gray;
+    display: grid;
+    grid-template-columns: 25% repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 25px;
+    align-items: center;
+}
+.section-banks__bank {
+    padding: 10px 10px;
+    margin: 5px 5px;
+}
+.bank__logo {
+    grid-area: 1 / 1 / span 3 / span 1;
+    width: 100%;
+    object-fit: cover;
+}
+.bank__name {
+    grid-area: 1 / 2 / span 1 / span 2;
+    text-align: center;
+}
+.bank__money-container {
+    grid-area: 2 / 2 / span 1 / span 2;
+    display: flex;
+    justify-content: space-between;
+}
+.bank__money-p, .bank__money-count{
+    font-size: 1.25rem;
+}
+.bank__buttons-container {
+    grid-area: 3 / 2 / span 1 / span 2;
+    display: flex;
+    justify-content: space-between;
+}
+.bank__button {
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+}
+.bank__button-add {
+    background-color: lightgreen;
+}
+.bank__button-add:hover {
+    background-color: rgba(144, 238, 144, 0.672);
+    transition-duration: 300ms;
+}
+.bank__button-take {
+    background-color: rgb(255, 90, 90);
+}
+.bank__button-take:hover {
+    background-color: rgba(255, 90, 90, 0.707);
+    transition-duration: 300ms;
+}
