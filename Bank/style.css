@@ -40,6 +40,9 @@
     padding: 10px 10px;
     margin: 5px 5px;
 }
+.bank[data-invisible="true"] {
+    display: none;
+}
 .bank__logo {
     grid-area: 1 / 1 / span 3 / span 1;
     width: 100%;
