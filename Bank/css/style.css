@@ -9,7 +9,8 @@
 
 .body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main {
@@ -24,8 +25,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
     justify-content: center;
-    /* grid-auto-rows: 150px; */
     grid-gap: 50px;
+    align-items: center;
 }
 
 .bank {
@@ -39,9 +40,6 @@
 .section-banks__bank {
     padding: 10px 10px;
     margin: 5px 5px;
-}
-.bank[data-invisible="true"] {
-    display: none;
 }
 .bank__logo {
     grid-area: 1 / 1 / span 3 / span 1;
@@ -65,22 +63,40 @@
     display: flex;
     justify-content: space-between;
 }
-.bank__button {
+.button-bank {
     padding: 10px 10px;
     border: none;
     border-radius: 5px;
 }
-.bank__button-add {
+.button-bank_green {
     background-color: lightgreen;
 }
-.bank__button-add:hover {
+.button-bank_green:hover {
     background-color: rgba(144, 238, 144, 0.672);
     transition-duration: 300ms;
 }
-.bank__button-take {
+.button-bank_red {
     background-color: rgb(255, 90, 90);
 }
-.bank__button-take:hover {
+.button-bank_red:hover {
     background-color: rgba(255, 90, 90, 0.707);
     transition-duration: 300ms;
+}
+
+.new-bank {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: lightgreen;
+    font-size: 2rem;
+}
+.new-bank:hover {
+    background-color: rgb(132, 218, 132);
+    box-shadow: 0 0 6px 2px gray;
+    transition-duration: 300ms;
+}
+
+[data-invisible] {
+    display: none;
 }

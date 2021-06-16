@@ -5,29 +5,44 @@
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/style-modal.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Bank</title>
 </head>
 
 <body class = "body">
   <main class="main body__main">
     <section class="section-banks">
-      <div class="bank section-banks__bank" data-bank-type="mono" data-invisible="true">
-        <img src="./img/mono.jpg" alt="bank logo" class="bank__logo">
+      <div class="bank section-banks__bank" data-invisible>
+        <img alt="bank logo" class="bank__logo">
 
         <h1 class="bank__name">Монобанк</h1>
         <div class="bank__money-container">
           <p class="bank__money-p">Ваши средства:</p>
-          <p class="bank__money-count">0.00<span> грн</span></p>
+          <p class="bank__money-count"></p>
         </div>
         
         <div class="bank__buttons-container">
-          <button class="button bank__button bank__button-add">Добавить средства</button>
-          <button class="button bank__button bank__button-take">Снять средства</button>
+          <button class="button button-bank button-bank_green">Добавить средства</button>
+          <button class="button button-bank button-bank_red">Снять средства</button>
         </div>
       </div>
+
+      <button class="button new-bank">+</button>
     </section>
   </main>
+
+  <div class="modal-bcgd" data-invisible>
+    <div class="modal">
+      <form class="form">
+        <input type="text" placeholder="Введите название банка">
+        <input type="text" placeholder="Введите URL логотипа банка">
+        <input type="text" placeholder="Введите стартовое кол-во денег на счету">
+        <button class="button modal__cancel">Отмена</button>
+        <button type="submit" class="button modal__create">Создать новый банк</button>
+      </form>
+    </div>
+  </div>
 
 
   <script src="./app.js"></script>
