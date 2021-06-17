@@ -13,7 +13,7 @@
 <body class = "body">
   <main class="main body__main">
     <section class="section-banks">
-      <div class="bank section-banks__bank" data-invisible>
+      <div class="bank section-banks__bank shadow" data-invisible>
         <img alt="bank logo" class="bank__logo">
 
         <h1 class="bank__name">Монобанк</h1>
@@ -32,14 +32,16 @@
     </section>
   </main>
 
-  <div class="modal-bcgd" data-invisible>
-    <div class="modal">
-      <form class="form">
-        <input type="text" placeholder="Введите название банка">
-        <input type="text" placeholder="Введите URL логотипа банка">
+  <div class="modal-newbank-bcgd">
+    <div class="modal-newbank body__modal-newbank shadow">
+      <form class="form modal-newbank__form">
+        <input type="text" class='input' placeholder="Введите название банка">
+        <input type="text" class='input' placeholder="Введите URL логотипа банка">
         <input type="text" placeholder="Введите стартовое кол-во денег на счету">
-        <button class="button modal__cancel">Отмена</button>
-        <button type="submit" class="button modal__create">Создать новый банк</button>
+        <div class="button-container">
+          <button class="button modal__cancel">Отмена</button>
+          <button type="submit" class="button modal__create">Создать новый банк</button>
+        </div>
       </form>
     </div>
   </div>

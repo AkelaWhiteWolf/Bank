@@ -6,6 +6,9 @@
 .button {
     cursor: pointer;
 }
+.shadow {
+    box-shadow: 0 0 6px 2px gray;
+}
 
 .body {
     display: flex;
@@ -30,7 +33,6 @@
 }
 
 .bank {
-    box-shadow: 0 0 6px 2px gray;
     display: grid;
     grid-template-columns: 25% repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
