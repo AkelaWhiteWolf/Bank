@@ -5,7 +5,7 @@
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="./css/style-modal.css">
+  <link rel="stylesheet" href="./css/modal-style.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>Bank</title>
 </head>
@@ -32,20 +32,20 @@
     </section>
   </main>
 
-  <div class="modal-newbank-bcgd">
+  <div class="modal-newbank-bcgd" data-invisible>
     <div class="modal-newbank body__modal-newbank shadow">
       <form class="form modal-newbank__form">
-        <input type="text" class='input modal__input' placeholder="Введите название банка">
-        <input type="text" class='input modal__input' placeholder="Введите URL логотипа банка">
-        <input type="number" class='input modal__input' placeholder="Введите стартовое количество денег на счету">
-        <button class="button button-bank button-bank_red">Отмена</button>
-        <button type="submit" class="button button-bank button-bank_green">Создать новый банк</button>
+        <input type="text" id="new-bank-name" class="input modal__input" placeholder="Введите название банка">
+        <input type="text" id="new-bank-url" class='input modal__input' placeholder="Введите URL логотипа банка">
+        <input type="number" id="new-bank-money" class='input modal__input' placeholder="Введите стартовое количество денег на счету">
+        <button id="modal-cancel" class="button button-bank button-bank_red">Отмена</button>
+        <button id="new-bank-submit" class="button button-bank button-bank_green">Создать новый банк</button>
       </form>
     </div>
   </div>
 
 
-  <script src="./app.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 
 </html>

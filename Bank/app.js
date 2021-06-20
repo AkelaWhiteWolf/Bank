@@ -1,6 +1,3 @@
-(() => {
-    'use strict';
+import {modals} from './modals.js';
 
-    
-
-})();
+modals();
