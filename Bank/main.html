@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8"/>
@@ -32,9 +32,10 @@
     </section>
   </main>
 
-  <div class="modal-newbank-bcgd" data-invisible>
-    <div class="modal-newbank body__modal-newbank shadow">
-      <form class="form modal-newbank__form">
+  <div id="new-bank-modal-wrapper" class="modal-wrapper" data-invisible>
+    <div class="modal body__modal shadow">
+      <h1>Создать новый банк</h1>
+      <form class="form modal__form">
         <input type="text" id="new-bank-name" class="input modal__input" placeholder="Введите название банка">
         <input type="text" id="new-bank-url" class='input modal__input' placeholder="Введите URL логотипа банка">
         <input type="number" id="new-bank-money" class='input modal__input' placeholder="Введите стартовое количество денег на счету">
@@ -43,7 +44,24 @@
       </form>
     </div>
   </div>
+  
+  <div id="feedback-modal-wrapper" class="modal-wrapper" data-invisible>
+    <div class="modal body__modal shadow">
+      <h1>Мы с вами свяжемся!</h1>
+      <form id="feedback" class="form modal__form">
+        <input type="text" id="user-name" class="input modal__input" placeholder="Введите ваше имя">
+        <input type="phone" id="user-phone" class="input modal__input" placeholder="Введите ваш телефон">
+        <input type="email" id="user-email" class='input modal__input' placeholder="Введите ваш email">
+        <button id="modal-cancel" class="button button-bank button-bank_red">Отмена</button>
+        <button id="feedback-submit" type="submit" class="button button-bank button-bank_green">Отправить контакты</button>
+      </form>
+      <div class="feedback-result-message" data-invisible></div>
+    </div>
+  </div>
 
+  <div class="contextmenu body__contextmenu shadow" data-invisible>
+    <div class="contextmenu__item contextmenu__delete">Удалить банк</div>
+  </div>
 
   <script type="module" src="./app.js"></script>
 </body>
