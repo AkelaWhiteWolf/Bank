@@ -1,4 +1,4 @@
-export let modals = () => {
+export let createModals = () => {
     'use strict';
     
     const btnAddNewBank = document.querySelector('.new-bank');
@@ -11,10 +11,10 @@ export let modals = () => {
 
             this.btnCancel.addEventListener('click', (event) => {
                 event.preventDefault();
-                this.showOrCloseModal();
+                this.toggleModal();
             });
         }
-        showOrCloseModal() {
+        toggleModal() {
             this.wrapper.toggleAttribute('data-invisible');
         }
         showConsole() {
@@ -39,7 +39,7 @@ export let modals = () => {
         bank.removeAttribute('data-invisible');
         btnAddNewBank.before(bank);
         
-        this.showOrCloseModal();
+        this.toggleModal();
     };
     modalNewBank.btnOk.addEventListener('click', function(event) {
         event.preventDefault();
@@ -48,6 +48,6 @@ export let modals = () => {
 
     btnAddNewBank.addEventListener('click', (event) => {
         event.preventDefault();
-        modalNewBank.showOrCloseModal();
+        modalNewBank.toggleModal();
     });
 };

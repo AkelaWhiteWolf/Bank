@@ -1,6 +1,8 @@
-import {modals} from './modals.js';
+import {createModals} from './modules/modals.js';
+import {createContextMenu} from './modules/contextmenu.js';
 
-modals();
+createModals();
+createContextMenu();
 
 // document.querySelector('.main').addEventListener('click', (e) => {
 //     if (e.currentTarget.matches('.bank')) {
