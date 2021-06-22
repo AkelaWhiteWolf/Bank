@@ -1,32 +1,32 @@
 export let modals = () => {
     'use strict';
     
-    const btnModalNewBank = document.querySelector('.new-bank');
-    const modalNewBank = document.querySelector('#new-bank-modal-wrapper');
-    const submitNewBank = modalNewBank.querySelector('#new-bank-submit');
-    const btnCancel = document.querySelectorAll('.button-bank_red');
+    const btnAddNewBank = document.querySelector('.new-bank');
+    class Modal {
+        constructor(modal) {
+            this.wrapper = modal.parentElement;
+            this.modal = modal;
+            this.btnCancel = modal.querySelector('.button-bank_red');
+            this.btnOk = modal.querySelector('.button-bank_green');
 
-    btnModalNewBank.addEventListener('click', () => modalNewBank.removeAttribute('data-invisible'));    
-    submitNewBank.addEventListener('click', (e) => {
-        e.preventDefault();
-        createNewBank();
-    });
-    for (let e of btnCancel) {
-        e.addEventListener('click', (event) => {
-            event.preventDefault();
-            closeModal(event.target);
-        });
+            this.btnCancel.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.showOrCloseModal();
+            });
+        }
+        showOrCloseModal() {
+            this.wrapper.toggleAttribute('data-invisible');
+        }
+        showConsole() {
+            console.log(this.modal);
+        }
     }
-    // setTimeout(() => {
-    //     let modalFeedback = document.querySelector('#feedback-modal-wrapper');
-    //     modalFeedback.removeAttribute('data-invisible');
-    // }, 3000);
 
-    function createNewBank() {
-
-        const newBankNameInput = modalNewBank.querySelector('#new-bank-name').value;
-        const newBankLogoInput = modalNewBank.querySelector('#new-bank-url').value;
-        const newBankMoneyInput = modalNewBank.querySelector('#new-bank-money').value;    
+    let modalNewBank = new Modal(document.querySelector('#modal-new-bank'));
+    modalNewBank.createNewBank = function() {
+        const newBankNameInput = this.modal.querySelector('#new-bank-name').value;
+        const newBankLogoInput = this.modal.querySelector('#new-bank-url').value;
+        const newBankMoneyInput = this.modal.querySelector('#new-bank-money').value;
         const bank = document.querySelector('.bank').cloneNode(true);
         let newBankNameElem = bank.querySelector('.bank__name');
         let newBankLogoElem = bank.querySelector('.bank__logo');
@@ -37,17 +37,17 @@ export let modals = () => {
         newBankMoneyElem.textContent = `${newBankMoneyInput}`;
 
         bank.removeAttribute('data-invisible');
-        btnModalNewBank.before(bank);
-        modalNewBank.setAttribute('data-invisible', '');
-    }
+        btnAddNewBank.before(bank);
+        
+        this.showOrCloseModal();
+    };
+    modalNewBank.btnOk.addEventListener('click', function(event) {
+        event.preventDefault();
+        modalNewBank.createNewBank();
+    });
 
-    function closeModal(btn) {
-        let wrapper = btn.closest('.modal-wrapper');
-        wrapper.setAttribute('data-invisible', '');
-    }
-
-    function submitFeedback() {
-        let feedback = new FormData(document.querySelector('#feedback'));
-        console.log(feedback);
-    }
+    btnAddNewBank.addEventListener('click', (event) => {
+        event.preventDefault();
+        modalNewBank.showOrCloseModal();
+    });
 };
