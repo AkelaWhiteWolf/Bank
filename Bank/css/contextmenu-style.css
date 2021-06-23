@@ -1,0 +1,24 @@
+.contextmenu {
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.body__contextmenu {
+    width: 250px;
+    padding: 10px 0;
+}
+
+.contextmenu__item {
+    height: 1.5rem;
+    padding: 0 10px;
+}
+.contextmenu__item:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    transition-duration: 300ms;
+}
+.contextmenu__delete {
+    color: red;
+}

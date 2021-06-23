@@ -1,5 +1,7 @@
 export let createContextMenu = () => {
-    const banks = document.getElementsByClassName('bank');
+    'use strict';
+    
+    const sectionBanks = document.querySelector('.section-banks');
 
     let contextMenu = {
         menu: document.querySelector('.contextmenu'),
@@ -7,19 +9,25 @@ export let createContextMenu = () => {
             return this.menu.querySelector('.contextmenu__delete');
         },
         show(left, top) {
-            this.menu.style.left = `${left}`;
-            this.menu.style.top = `${top}`;
-            this.toggle();
+            this.menu.style.left = `${left}px`;
+            this.menu.style.top = `${top}px`;
+            this.menu.removeAttribute('data-invisible');
+            this.btnDeleteBank.addEventListener('click', this.deleteBank);
+            document.body.addEventListener('click', this.hideMenu, {once: true});
         },
-        toggle() {
-            this.menu.toggleAttribute('data-invisible');
+        hideMenu() {
+            contextMenu.menu.setAttribute('data-invisible', '');
+        },
+        deleteBank() {
+            contextMenu.bank.remove();
         }
     };
 
-    for (let bank of banks) {
-        bank.addEventListener('contextmenu', (event) => {
+    sectionBanks.addEventListener('contextmenu', (event) => {
+        if (event.target.closest('.bank')) {
             event.preventDefault();
             contextMenu.show(event.clientX, event.clientY);
-        });
-    }
+            contextMenu.bank = event.target.closest('.bank');
+        }
+    });
 };
