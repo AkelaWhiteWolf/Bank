@@ -102,3 +102,9 @@
 [data-invisible] {
     display: none;
 }
+
+.article-exchange-rates {
+    width: 1170px;
+    min-height: 450px;
+    
+}
