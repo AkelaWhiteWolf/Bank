@@ -19,6 +19,9 @@
 .main {
     width: 100%;
     max-width: 1170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .body__main {
     margin-top: 100px;
@@ -101,10 +104,4 @@
 
 [data-invisible] {
     display: none;
-}
-
-.article-exchange-rates {
-    width: 1170px;
-    min-height: 450px;
-    
 }

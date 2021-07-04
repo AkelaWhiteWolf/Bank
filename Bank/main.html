@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="./css/modal-style.css">
   <link rel="stylesheet" href="./css/contextmenu-style.css">
+  <link rel="stylesheet" href="./css/exchange-rates-style.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>Bank</title>
 </head>
@@ -32,12 +33,23 @@
       <button class="button new-bank">+</button>
     </section>
 
-    <article class="article-exchange-rates">
-      <div class="input-window body__input-window body__calendar-container shadow">
-      <form id="form-calendar" class="form input-window__form">
-        <input type="date" id="calendar" class="input input-window__input">
-        <button id="btn-calendar" class="button button-bank button-bank_green">Выбрать</button>
-      </form>
+    <article class="article-exchange-rates body__article-exchange-rates">
+      <h1>Курс валют</h1>
+      <div class="article-exchange-rates__slider">
+        <div class="carousel-container article-exchange-rates__carousel-container">
+          <button class="button btn-carousel carousel-container__btn" data-flip="left">&lt</button>
+          <div class="carousel-content carousel-container__carousel-content">
+            <div class="carousel-content__elem">USD<span class="rate"></span></div>
+            <div class="carousel-content__elem">EUR<span class="rate"></span></div>
+            <div class="carousel-content__elem">GBP<span class="rate"></span></div>
+            <div class="carousel-content__elem">JPY<span class="rate"></span></div>
+            <div class="carousel-content__elem">CHF<span class="rate"></span></div>
+            <div class="carousel-content__elem">CNY<span class="rate"></span></div>
+          </div>
+          <button class="button btn-carousel carousel-container__btn" data-flip="right">&gt</button>
+        </div>
+      </div>
+      <!-- <div class="calendar-container article-exchange-rates__calendar-container"></div> -->
     </article>
   </main>
 

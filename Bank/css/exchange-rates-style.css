@@ -1,0 +1,56 @@
+.article-exchange-rates {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.body__article-exchange-rates {
+    width: 500px;
+    min-height: 350px;
+    border: 1px solid black;
+}
+.article-exchange-rates__slider {
+    width: 200%;
+    min-height: 150px;
+    align-self: flex-start;
+    border: 1px solid red;
+    display: flex;
+    align-items: stretch;
+}
+.carousel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.article-exchange-rates__carousel-container {
+    width: 50%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 8% 1fr 8%;
+    grid-column-gap: 1rem;
+    align-items: stretch;
+    border: 1px solid green;
+}
+.carousel-container__btn {
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+}
+.carousel-container__btn:hover {
+    background-color: rgba(90, 90, 90, 0.2);
+    transition-duration: 0.2s;
+}
+.carousel-content {
+    display: flex;
+    align-items: stretch;
+    overflow-x: hidden;
+}
+.carousel-content__elem {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.carousel-content__elem, .rate {
+    font-size: 2rem;
+}
