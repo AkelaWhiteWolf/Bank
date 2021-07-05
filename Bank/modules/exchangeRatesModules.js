@@ -11,6 +11,29 @@ export let exchangeRatesModules = () => {
     //     });
     // }
 
+    const btnFlipLeft = document.querySelector('.btn-carousel[data-flip="left"]');
+    const btnFlipRight = document.querySelector('.btn-carousel[data-flip="right"]');
+
+    btnFlipLeft.addEventListener('click', () => flipCarousel('left'));
+    btnFlipRight.addEventListener('click', () => flipCarousel('right'));
+
+    function flipCarousel(route) {
+        const carouselElem = document.querySelector('.carousel-content__elem');
+        let currentMargin = carouselElem.style.marginLeft;
+
+        if (!currentMargin) {
+            currentMargin = 0;
+        } else {
+            currentMargin = currentMargin.slice(0, currentMargin.length - 1);
+        }
+        
+        if (route === 'left') {
+            carouselElem.style.marginLeft = `${Number(currentMargin) + 100}%`;
+        } else {
+            carouselElem.style.marginLeft = `${currentMargin - 100}%`;
+        }
+    }
+    
     let exchangeRates = {
         
     };
@@ -48,5 +71,4 @@ export let exchangeRatesModules = () => {
             let rate = elem.querySelector('.rate');
         }
     }
-    // getExchange(takeDate(), 'EUR');
 };
