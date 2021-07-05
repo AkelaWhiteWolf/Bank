@@ -18,18 +18,29 @@ export let exchangeRatesModules = () => {
     btnFlipRight.addEventListener('click', () => flipCarousel('right'));
 
     function flipCarousel(route) {
+        const content = document.querySelector('.carousel-content');
         const carouselElem = document.querySelector('.carousel-content__elem');
         let currentMargin = carouselElem.style.marginLeft;
 
-        if (!currentMargin) {
+        if (!currentMargin || currentMargin === '0%' || currentMargin === '') {
             currentMargin = 0;
         } else {
             currentMargin = currentMargin.slice(0, currentMargin.length - 1);
         }
         
         if (route === 'left') {
-            carouselElem.style.marginLeft = `${Number(currentMargin) + 100}%`;
+            if (currentMargin == 0) {
+                content.style.flexDirection = 'row-reverse';
+                console.log(carouselElem.style.marginLeft);
+                carouselElem.style.marginRight = `${Number(currentMargin) - 100}%`;
+            } else {
+                carouselElem.style.marginLeft = `${Number(currentMargin) + 100}%`;
+            }
         } else {
+            if (currentMargin == -500) {
+                carouselElem.style.marginLeft = '';
+                console.log(carouselElem.style.marginLeft);
+            }
             carouselElem.style.marginLeft = `${currentMargin - 100}%`;
         }
     }
