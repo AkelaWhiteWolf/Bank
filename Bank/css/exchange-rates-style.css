@@ -44,7 +44,7 @@
 .carousel-content {
     display: flex;
     align-items: stretch;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 .carousel-content__elem {
     min-width: 100%;

@@ -1,69 +1,83 @@
-export let exchangeRatesModules = () => {
+export let exchangeRatesModules = async () => {
     'use strict';
 
     const btnFlipLeft = document.querySelector('.btn-carousel[data-flip="left"]');
     const btnFlipRight = document.querySelector('.btn-carousel[data-flip="right"]');
-    const content = document.querySelector('.carousel-content');
-    let carouselElements = document.querySelectorAll('.carousel-content__elem');
+    let content = document.querySelector('.carousel-content');
+    const reserveСurrencies = ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'CNY'];
+    let cards = [];
+    let count = 0;
+    let autoRotate = true;
 
-    function loopCarousel() {
-        let newCarousel = [];
-
-        for (let e of carouselElements) {
-            let newElem = e.cloneNode(true);
-            newCarousel.push(newElem);
+    class Card {
+        constructor(currency, rate) {
+            this.currency = currency;
+            this.rate = rate;
         }
-        console.log(newCarousel);
-        
-        for (let i = newCarousel.length - 1; i > 0; i--) {
-            content.prepend(newCarousel[i]);
+
+        get domElement() {
+            let domElement = document.querySelector('.carousel-content__elem').cloneNode(true);
+            domElement.innerHTML = `${this.currency} <span class="rate">${this.rate}</span>`;
+            domElement.removeAttribute('data-invisible');
+            return domElement;    
         }
-        // if (side === 'left') {
-        //     for (let e of newCarousel) {
-        //         content.prepend(e);
-        //     }
-        // } else {
-        //     for (let e of newCarousel) {
-        //         content.append(e);
-        //     }
-        // }
-        
-    }
 
-    loopCarousel();
-
-    // btnFlipLeft.addEventListener('click', () => flipCarousel('left'));
-    // btnFlipRight.addEventListener('click', () => flipCarousel('right'));
-
-    function flipCarousel(route) {
-        let carouselFirstElem = carouselElements[0];
-        let currentMargin = carouselFirstElem.style.marginLeft;
-
-        if (!currentMargin || currentMargin === '0%') {
-            currentMargin = 0;
-        } else {
-            currentMargin = currentMargin.slice(0, currentMargin.length - 1);
-        }
-        
-        if (route === 'left') {
-            if (currentMargin == 0) {
-                content.style.flexDirection = 'row-reverse';
-                console.log(carouselFirstElem.style.marginLeft);
-                carouselFirstElem.style.marginRight = `${Number(currentMargin) - 100}%`;
-            } else {
-                carouselFirstElem.style.marginLeft = `${Number(currentMargin) + 100}%`;
-            }
-        } else {
-            if (currentMargin == -500) {
-                carouselFirstElem.style.marginLeft = '';
-                console.log(carouselFirstElem.style.marginLeft);
-            }
-            carouselFirstElem.style.marginLeft = `${currentMargin - 100}%`;
+        pushCard() {
+            content.append(this.domElement);
         }
     }
     
+    let request = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
+    try {
+        request = await request.json();
+    } catch (e) {
+        console.error(e);
+    }
     
+    for (let obj of request) {
+        for (let currency of reserveСurrencies) {
+            if (obj.cc === currency) {
+                cards.push(new Card(obj.cc, obj.rate));
+            }
+        }
+    }
+    
+    cards[0].pushCard();
+    content.firstElementChild.remove();
 
+    btnFlipLeft.addEventListener('click', () => rotateCarousel('left'));
+    
+    btnFlipRight.addEventListener('click', () => rotateCarousel('right'));
+
+    function rotateCarousel(side) {
+        if (side === 'left') {
+            count--;
+            if (count < 0) {
+                count = 5;
+            }
+            content.style.flexDirection = 'row-reverse';
+            cards[count].pushCard();
+            content.firstElementChild.style.marginRight = '-100%';
+        } else {
+            count++;
+            if (count > 5) {
+                count = 0;
+            }
+            content.style.flexDirection = 'row';
+            cards[count].pushCard();
+            content.firstElementChild.style.marginLeft = '-100%';    
+        }
+        setTimeout(() => {content.firstElementChild.remove();}, 500);
+    }
+
+    setInterval(() => {
+        if (autoRotate) {
+            rotateCarousel('right');
+        }
+    }, 3000);
+
+    content.addEventListener('pointerover', () => autoRotate = false);
+    content.addEventListener('pointerleave', () => autoRotate = true);
 
     
     // function convertDate(date = new Date()) {
