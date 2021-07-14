@@ -1,33 +1,32 @@
-export let exchangeRatesModules = async () => {
+export let exchangeRates = async () => {
     'use strict';
 
     const btnFlipLeft = document.querySelector('.btn-carousel[data-flip="left"]');
     const btnFlipRight = document.querySelector('.btn-carousel[data-flip="right"]');
     let content = document.querySelector('.carousel-content');
+    let container = document.querySelector('.carousel-container');
     const reserveСurrencies = ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'CNY'];
     let cards = [];
     let count = 0;
     let autoRotate = true;
+    let request = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
 
     class Card {
         constructor(currency, rate) {
             this.currency = currency;
             this.rate = rate;
         }
-
         get domElement() {
             let domElement = document.querySelector('.carousel-content__elem').cloneNode(true);
             domElement.innerHTML = `${this.currency} <span class="rate">${this.rate}</span>`;
             domElement.removeAttribute('data-invisible');
             return domElement;    
         }
-
         pushCard() {
             content.append(this.domElement);
         }
     }
     
-    let request = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
     try {
         request = await request.json();
     } catch (e) {
@@ -46,8 +45,9 @@ export let exchangeRatesModules = async () => {
     content.firstElementChild.remove();
 
     btnFlipLeft.addEventListener('click', () => rotateCarousel('left'));
-    
     btnFlipRight.addEventListener('click', () => rotateCarousel('right'));
+    container.addEventListener('pointerover', () => autoRotate = false);
+    container.addEventListener('pointerleave', () => autoRotate = true);
 
     function rotateCarousel(side) {
         if (side === 'left') {
@@ -67,7 +67,9 @@ export let exchangeRatesModules = async () => {
             cards[count].pushCard();
             content.firstElementChild.style.marginLeft = '-100%';    
         }
-        setTimeout(() => {content.firstElementChild.remove();}, 500);
+        setTimeout(() => {
+            content.firstElementChild.remove();
+        }, 500);
     }
 
     setInterval(() => {
@@ -76,8 +78,6 @@ export let exchangeRatesModules = async () => {
         }
     }, 3000);
 
-    content.addEventListener('pointerover', () => autoRotate = false);
-    content.addEventListener('pointerleave', () => autoRotate = true);
 
     
     // function convertDate(date = new Date()) {
