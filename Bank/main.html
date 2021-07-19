@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="./css/modal-style.css">
   <link rel="stylesheet" href="./css/contextmenu-style.css">
-  <link rel="stylesheet" href="./css/exchange-rates-style.css">
+  <link rel="stylesheet" href="./css/exchange-rates-carousel-style.css">
+  <link rel="stylesheet" href="./css/exchange-rates-calendar-style.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>Bank</title>
 </head>
@@ -33,7 +34,11 @@
       <button class="button new-bank">+</button>
     </section>
 
-    <article class="article-exchange-rates body__article-exchange-rates">
+    <article class="article-exchange-rates body__article-exchange-rates shadow">
+      <div class="switch-container article-exchange-rates__switch-container">
+        <div id="btn-switch-to-carousel" class="btn-switch">&lt Карусель</div>
+        <div id="btn-switch-to-calendar" class="btn-switch" data-is-active>Курс по дате &gt</div>
+      </div>
       <h1>Курс валют</h1>
       <div class="article-exchange-rates__slider">
         <div class="carousel-container article-exchange-rates__carousel-container">
