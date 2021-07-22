@@ -8,15 +8,17 @@
     width: 550px;
     min-height: 350px;
     border: 1px solid black;
+    margin-top: 6rem;
     padding: 0 1rem;
 }
 .article-exchange-rates__slider {
     width: 200%;
-    min-height: 150px;
+    min-height: 200px;
     align-self: flex-start;
     border: 1px solid red;
-    display: flex;
-    align-items: stretch;
+    display: grid;
+    grid-template: 20% 1fr / 50% 50%;
+    grid-auto-flow: column;
     transition-duration: 0.7s;
 }
 .switch-container {
@@ -37,13 +39,7 @@
 .btn-switch[data-is-active] {
     color: darkgreen;
 }
-.carousel-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 .article-exchange-rates__carousel-container {
-    width: 50%;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 8% 1fr 8%;
