@@ -1,0 +1,11 @@
+.choose-currency-container {
+    display: flex;
+}
+.choose-currency-container__input-currency {
+    flex-grow: 3;
+    padding: 3px 3px;
+    outline: none;
+    margin-right: 9px;
+    /* border: none;
+    border-bottom: 1px solid gray; */
+}

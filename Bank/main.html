@@ -39,17 +39,23 @@
         <div id="btn-switch-to-carousel" class="btn-switch">&lt Карусель</div>
         <div id="btn-switch-to-calendar" class="btn-switch" data-is-active>Курс по дате &gt</div>
       </div>
-      <div class="article-exchange-rates__slider">
-        <h1 class="article-exchange-rates__h1">Курс валют на сегодняшний день</h1>
-        <div class="carousel-container article-exchange-rates__carousel-container">
+      <div class="carousel-container article-exchange-rates__carousel-container">
+        <h1>Курс валют на сегодняшний день</h1>
+        <div class="article-exchange-rates__slider">
           <button class="button btn-carousel carousel-container__btn" data-flip="left">&lt</button>
           <div class="carousel-content carousel-container__carousel-content">
             <div class="carousel-content__elem" data-invisible><span class="rate"></span></div>
           </div>
           <button class="button btn-carousel carousel-container__btn" data-flip="right">&gt</button>
         </div>
+        
+        <div class="choose-currency-container">
+          <input type="text" placeholder="Введите название валюты" class="choose-currency-container__input-currency">
+          <input type="date" id="choose-currency-calendar">
+        </div>
+        <div class="calendar-container article-exchange-rates__calendar-container"></div>
       </div>
-      <!-- <div class="calendar-container article-exchange-rates__calendar-container"></div> -->
+
     </article>
   </main>
 
@@ -60,7 +66,7 @@
         <input type="text" id="new-bank-name" class="input input-window__input" placeholder="Введите название банка">
         <input type="text" id="new-bank-url" class='input input-window__input' placeholder="Введите URL логотипа банка">
         <input type="number" id="new-bank-money" class='input input-window__input' placeholder="Введите стартовое количество денег на счету">
-        <button id="modal-cancel" class="button button-bank button-bank_red">Отмена</button>
+        <button class="button button-bank button-bank_red">Отмена</button>
         <button id="new-bank-submit" class="button button-bank button-bank_green">Создать новый банк</button>
       </form>
     </div>
@@ -73,7 +79,7 @@
         <input type="text" id="user-name" class="input input-window__input" placeholder="Введите ваше имя">
         <input type="phone" id="user-phone" class="input input-window__input" placeholder="Введите ваш телефон">
         <input type="email" id="user-email" class='input input-window__input' placeholder="Введите ваш email">
-        <button id="modal-cancel" class="button button-bank button-bank_red">Отмена</button>
+        <button class="button button-bank button-bank_red">Отмена</button>
         <button id="feedback-submit" type="submit" class="button button-bank button-bank_green">Отправить контакты</button>
       </form>
       <div class="feedback-result-message" data-invisible></div>

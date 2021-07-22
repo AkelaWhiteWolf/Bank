@@ -16,7 +16,7 @@ export let exchangeRatesCalendar = async () => {
             return false;
         }
 
-        const slider = document.querySelector('.article-exchange-rates__slider');
+        const container = document.querySelector('.carousel-container');
         const btnsSwitch = document.querySelectorAll('.btn-switch');
 
         for (let e of btnsSwitch) {
@@ -25,9 +25,9 @@ export let exchangeRatesCalendar = async () => {
         thisElem.removeAttribute('data-is-active');
         
         if (where === 'to-calendar') {
-            slider.style.marginLeft = '-100%';
+            container.style.marginLeft = '-100%';
         } else {
-            slider.style.marginLeft = '';
+            container.style.marginLeft = '';
         }
     }
     
