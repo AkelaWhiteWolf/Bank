@@ -6,10 +6,12 @@
     overflow-x: hidden;
 }
 .body__article-exchange-rates {
-    width: 550px;
+    min-width: 350px;
+    max-width: 550px;
+    width: 100vw;
     min-height: 350px;
-    border: 1px solid black;
-    margin-top: 6rem;
+    /* border: 1px solid black; */
+    margin: 6rem;
     padding: 0 1rem;
 }
 .switch-container {
@@ -31,20 +33,23 @@
     color: darkgreen;
 }
 .article-exchange-rates__carousel-container {
-    width: 200%;
+    width: calc(200% + 2rem);
     min-height: 200px;
     align-self: flex-start;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
     grid-template: 20% 1fr / 1fr 1fr;
+    grid-column-gap: 2rem;
     grid-auto-flow: column;
     transition-duration: 0.7s;
+}
+.carousel-container__h1 {
+    text-align: center;
 }
 .article-exchange-rates__slider {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 8% 1fr 8%;
-    grid-column-gap: 1rem;
     align-items: stretch;
     border: 1px solid green;
 }

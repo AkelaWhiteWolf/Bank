@@ -25,7 +25,7 @@ export let exchangeRatesCalendar = async () => {
         thisElem.removeAttribute('data-is-active');
         
         if (where === 'to-calendar') {
-            container.style.marginLeft = '-100%';
+            container.style.marginLeft = 'calc(-100% - 2rem)';
         } else {
             container.style.marginLeft = '';
         }
