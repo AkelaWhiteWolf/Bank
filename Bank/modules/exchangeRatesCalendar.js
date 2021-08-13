@@ -30,6 +30,16 @@ export let exchangeRatesCalendar = async () => {
             container.style.marginLeft = '';
         }
     }
+
+    async function showCurrenciesBySearch(search) {
+        let desireCurrencies = [];
+        let regexp = new RegExp(`${search}`, 'i');
+        let currencies = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
+        currencies = await currencies.json();
+        console.log(currencies);
+    }
+
+    showCurrenciesBySearch();
     
     // function convertDate(date = new Date()) {
     //     let year = String(date.getFullYear());
