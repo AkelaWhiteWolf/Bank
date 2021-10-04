@@ -1,15 +1,41 @@
 export let exchangeRatesCalendar = async () => {
     'use strict';
 
-    async function showCurrenciesBySearch(search) {
-        let desireCurrencies = [];
-        let regexp = new RegExp(`${search}`, 'i');
-        let currencies = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
-        currencies = await currencies.json();
-        // console.log(currencies);
+    const input = document.querySelector('.choose-currency-container__input-currency');
+    const calendar = document.querySelector('#choose-currency-calendar');
+
+    function proposeCurrencies(search) {
+        const inputCurrency = document.querySelector('.choose-currency-container__input-currency');
+        const offers = document.querySelector('.find-currency');
+        
+        function showForm() {
+            const coordsDoc = {
+                box: inputCurrency.getBoundingClientRect(),
+                top: this.box.top + scrollY,
+                left: this.box.left + scrollX
+            };
+
+            offers.removeAttribute('data-invisible');
+            offers.style.top = `${coordsDoc.top + 40}px`;
+            offers.style.left = `${coordsDoc.left}px`;
+        }
+
+        async function addVariant() {
+            const variantsObj = await fetch();
+        }
     }
 
-    showCurrenciesBySearch();
+    
+    // async function showCurrenciesBySearch(search) {
+    //     let desireCurrencies = [];
+    //     let regexp = new RegExp(`${search}`, 'i');
+    //     let currencies = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
+    //     currencies = await currencies.json();
+        
+    //     // console.log(currencies);
+    // }
+
+    // showCurrenciesBySearch();
     
     // function convertDate(date = new Date()) {
     //     let year = String(date.getFullYear());
