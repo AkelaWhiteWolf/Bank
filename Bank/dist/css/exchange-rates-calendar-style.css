@@ -9,3 +9,12 @@
     /* border: none;
     border-bottom: 1px solid gray; */
 }
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.currency-course {
+    font-size: 3rem;
+    font-weight: bold;
+}

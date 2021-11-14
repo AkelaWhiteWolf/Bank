@@ -1,15 +1,17 @@
+import {getCurrencies} from './getCurrencies.js';
 export let exchangeRatesCarousel = async () => {
     'use strict';
 
+
+    const currenciesAll = await getCurrencies();
     const btnFlipLeft = document.querySelector('.btn-carousel[data-flip="left"]');
     const btnFlipRight = document.querySelector('.btn-carousel[data-flip="right"]');
+    const reserveСurrencies = ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'CNY'];
     let content = document.querySelector('.carousel-content');
     let container = document.querySelector('.carousel-container');
-    const reserveСurrencies = ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'CNY'];
     let cards = [];
     let count = 0;
     let autoRotate = true;
-    let request = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json');
 
     class Card {
         constructor(currency, rate) {
@@ -27,17 +29,9 @@ export let exchangeRatesCarousel = async () => {
         }
     }
     
-    try {
-        request = await request.json();
-    } catch (e) {
-        console.error(e);
-    }
-    
-    for (let obj of request) {
-        for (let currency of reserveСurrencies) {
-            if (obj.cc === currency) {
-                cards.push(new Card(obj.cc, obj.rate));
-            }
+    for (let obj of currenciesAll) {
+        if (reserveСurrencies.includes(obj.cc)) {
+            cards.push(new Card(obj.cc, obj.rate));
         }
     }
     
